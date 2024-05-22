@@ -1,6 +1,7 @@
 from grammar import Grammar
 from rule import Rule
 
+
 def remove_left_recursion(grammar: Grammar):
     new_rules: list[Rule] = grammar.rules.copy()
     non_terminals = grammar.non_terms.copy()

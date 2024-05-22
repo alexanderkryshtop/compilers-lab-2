@@ -2,7 +2,7 @@ from grammar import Grammar
 from remove_left_recursion import remove_left_recursion
 from remove_unreachable_symbols import remove_unreachable_symbols
 
-grammar = Grammar.parse_grammar(
+grammar = Grammar.from_text(
     """
     [A,B,C,D] [a,b,c] A
     A -> A a | a | B

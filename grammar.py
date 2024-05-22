@@ -42,7 +42,7 @@ class Grammar:
         return output
 
     @staticmethod
-    def parse_grammar(text: str):
+    def from_text(text: str) -> "Grammar":
         text = text.strip()
 
         header, *body = text.split("\n")
