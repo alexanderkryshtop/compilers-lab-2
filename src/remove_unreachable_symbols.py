@@ -6,6 +6,7 @@ def remove_unreachable_symbols(g: Grammar):
     non_terminals = [g.start_symbol]
 
     new_rules = []
+    new_terms = []
 
     while len(queue):
         current_non_terminal = queue.pop(0)
@@ -15,5 +16,7 @@ def remove_unreachable_symbols(g: Grammar):
                 if symbol in g.non_terms and symbol not in non_terminals:
                     non_terminals.append(symbol)
                     queue.append(symbol)
+                if symbol in g.terms:
+                    new_terms.append(symbol)
 
-    return Grammar(non_terminals, g.terms, new_rules, g.start_symbol)
+    return Grammar(non_terminals, list(dict.fromkeys(new_terms)), new_rules, g.start_symbol)
